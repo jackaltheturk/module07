@@ -6,7 +6,7 @@
 /*   By: etorun <etorun@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/06 06:09:10 by etorun            #+#    #+#             */
-/*   Updated: 2026/08/07 06:47:00 by etorun           ###   ########.fr       */
+/*   Updated: 2026/08/09 05:58:27 by etorun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ Array<T>& Array<T>::operator=(const Array& other)
 {
     if (&other != this)
     {
-        delete [] this->_array;
+        delete[] this->_array;
         
         this->_size = other._size;   
         this->_array = new T[_size]();
@@ -70,14 +70,14 @@ template <typename T>
 T& Array<T>::operator[](unsigned int index) {
     
     if (index >= _size) 
-        throw std::out_of_range("Index out of bounds!");
+        throw std::out_of_range("Out of bounds!");
     return _array[index];
 }
 
 template <typename T>
 const T& Array<T>::operator[](unsigned int index) const {
     if (index >= _size)
-        throw std::out_of_range("Index out of bounds!");
+        throw std::out_of_range("Out of bounds!");
     return _array[index];
 }
 
