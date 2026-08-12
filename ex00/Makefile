@@ -1,21 +1,13 @@
-NAME = whatever
 CXX = c++
-CXXFLAGS =-std=c++98 -Wall -Wextra -Werror
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 SRC = main.cpp  
 OBJS = $(SRC:.cpp=.o)
+NAME = whatever
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	c++  -o $(NAME) $(CXXFLAGS) $(OBJS) 
-
-run: $(NAME)
-	make clean
-	clear
-	./$(NAME)
-
-leak:
-	valgrind ./$(NAME) 
+	$(CXX) -o $(NAME) $(CXXFLAGS) $(OBJS) 
 
 clean:
 	rm -rf $(OBJS)
@@ -23,4 +15,6 @@ clean:
 fclean: clean
 	rm -rf $(NAME)
 
-re: fclean all 
+re: fclean all
+
+.PHONY: all clean fclean re

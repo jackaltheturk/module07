@@ -23,9 +23,10 @@ void printStr(const std::string& variable)
 	std::cout << "Variable: " << variable << std::endl;
 }
 
-void printInt(const int& variable)
+template <typename T>
+void print(T& value)
 {
-	std::cout << "Variable: " << variable << std::endl;
+	std::cout << value << std::endl;
 }
 int main(void)
 {
@@ -36,5 +37,5 @@ int main(void)
 	int intArray[3] = {12, 3, 43};
 	::iter(strArray, 3, printStr);
 	::iter(intArray, 3, toDouble);
-	::iter(intArray, 3, printInt);
+	::iter(intArray, 3, print<int>);
 }
